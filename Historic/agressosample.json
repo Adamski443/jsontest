@@ -1,0 +1,2532 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "Unit4 WebAPI documentation",
+    "description": "Unit4 WebAPI documentation"
+  },
+  "host": "bwuat-web.test.co.uk",
+  "basePath": "/BusinessWorld-web-api",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/v1/absences/{personId}/{sequenceNumber}/{absSeq}": {
+        "get": {
+          "tags": [
+            "Absences"
+          ],
+          "operationId": "Absence_GetAbsence",
+          "consumes": [],
+          "produces": [
+            "application/json",
+            "text/json",
+            "application/xml",
+            "text/xml"
+          ],
+          "parameters": [
+            {
+              "name": "personId",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "sequenceNumber",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32"
+            },
+            {
+              "name": "absSeq",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32"
+            },
+            {
+              "name": "companyId",
+              "in": "query",
+              "description": "Company id",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.Absence"
+              }
+            },
+            "400": {
+              "description": "BadRequest",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "404": {
+              "description": "NotFound",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "410": {
+              "description": "Gone",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          },
+          "deprecated": false
+        },
+        "delete": {
+          "tags": [
+            "Absences"
+          ],
+          "operationId": "Absence_DeleteAbsence",
+          "consumes": [],
+          "produces": [
+            "application/json",
+            "text/json",
+            "application/xml",
+            "text/xml"
+          ],
+          "parameters": [
+            {
+              "name": "personId",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "sequenceNumber",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32"
+            },
+            {
+              "name": "absSeq",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32"
+            },
+            {
+              "name": "companyId",
+              "in": "query",
+              "description": "Company id",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Object"
+              }
+            },
+            "400": {
+              "description": "BadRequest",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "404": {
+              "description": "NotFound",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "410": {
+              "description": "Gone",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          },
+          "deprecated": false
+        }
+      },
+      "/v1/reportengine/reports/server/{orderNo}/{reportName}": {
+        "get": {
+          "tags": [
+            "Report Engine Reports"
+          ],
+          "operationId": "Report_GetOrderedReport",
+          "consumes": [],
+          "produces": [
+            "application/json",
+            "text/json",
+            "application/xml",
+            "text/xml"
+          ],
+          "parameters": [
+            {
+              "name": "orderNo",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32"
+            },
+            {
+              "name": "reportName",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "type",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "existOnly",
+              "in": "query",
+              "required": false,
+              "type": "boolean"
+            },
+            {
+              "name": "outputFormat",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "enum": [
+                "base64",
+                "inline",
+                "attachment"
+              ]
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Object"
+              }
+            },
+            "400": {
+              "description": "BadRequest",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "404": {
+              "description": "NotFound",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "410": {
+              "description": "Gone",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          },
+          "deprecated": false
+        }
+      },
+      "/v1/reportengine/reports/server/{client}/{menuId}": {
+        "post": {
+          "tags": [
+            "Report Engine Reports"
+          ],
+          "operationId": "Report_OrderReport",
+          "consumes": [],
+          "produces": [
+            "application/json",
+            "text/json",
+            "application/xml",
+            "text/xml"
+          ],
+          "parameters": [
+            {
+              "name": "client",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "menuId",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "variant",
+              "in": "query",
+              "required": false,
+              "type": "integer",
+              "format": "int32"
+            },
+            {
+              "name": "parameters",
+              "in": "query",
+              "required": false,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Object"
+              }
+            },
+            "400": {
+              "description": "BadRequest",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "404": {
+              "description": "NotFound",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "410": {
+              "description": "Gone",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "422": {
+              "description": "UnprocessableEntity",
+              "schema": {
+                "$ref": "#/definitions/Object"
+              }
+            }
+          },
+          "deprecated": false
+        }
+      },
+      "/v1/me/travel-expenses": {
+        "get": {
+          "tags": [
+            "Travel expenses"
+          ],
+          "summary": "Retrieves all travelExpenses of the logged in and company ID. By default only return active travels.",
+          "operationId": "MyTravelExpense_Get",
+          "consumes": [],
+          "produces": [
+            "application/json",
+            "text/json",
+            "application/xml",
+            "text/xml"
+          ],
+          "parameters": [
+            {
+              "name": "active",
+              "in": "query",
+              "required": false,
+              "type": "boolean"
+            },
+            {
+              "name": "companyId",
+              "in": "query",
+              "description": "Company id",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense"
+                }
+              }
+            },
+            "400": {
+              "description": "BadRequest",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "404": {
+              "description": "NotFound",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "410": {
+              "description": "Gone",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          },
+          "deprecated": false
+        },
+        "post": {
+          "tags": [
+            "Travel expenses"
+          ],
+          "summary": "Creates a new travel based on the sent in DTO object, or import from existing external transactions.\r\n            if \"importExpenses\" provides legal external transaction ids, these expenses will be imported from attexttrans table (external transactions) and add to the newly created travel.\r\n            The expenses will be removed from attextrans and saved as new expenses in attdetails in one database transaction.",
+          "operationId": "MyTravelExpense_Create",
+          "consumes": [
+            "application/json",
+            "text/json",
+            "application/xml",
+            "text/xml",
+            "application/x-www-form-urlencoded",
+            "multipart/form-data"
+          ],
+          "produces": [
+            "application/json",
+            "text/json",
+            "application/xml",
+            "text/xml"
+          ],
+          "parameters": [
+            {
+              "name": "travelExpense",
+              "in": "body",
+              "description": "Travel DTO",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense"
+              }
+            },
+            {
+              "name": "importExpenseIds",
+              "in": "query",
+              "description": "List of ids of the expenses to import, seperated by comma.",
+              "required": false,
+              "type": "string"
+            },
+            {
+              "name": "itemizeExpenses",
+              "in": "query",
+              "description": "Whether itemize expense types that can be itemized or not.",
+              "required": false,
+              "type": "boolean"
+            },
+            {
+              "name": "ignoreLimitWarnings",
+              "in": "query",
+              "description": "Ignore limit warnings and save the dto or give up on saving.",
+              "required": false,
+              "type": "boolean"
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Created",
+              "schema": {
+                "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense"
+              }
+            },
+            "400": {
+              "description": "BadRequest",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "404": {
+              "description": "NotFound",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "410": {
+              "description": "Gone",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "422": {
+              "description": "UnprocessableEntity",
+              "schema": {
+                "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense"
+              }
+            }
+          },
+          "deprecated": false
+        }
+      },
+      "/v1/me/travel-expenses/{transactionNumber}/expenseLines": {
+        "post": {
+          "tags": [
+            "Travel expenses"
+          ],
+          "summary": "Import expenses from attexttrans table (external transactions) and append them to an existing travel.\r\n            The expenses will be removed from attextrans and saved as new expenses in attdetails in one database transaction.",
+          "operationId": "MyTravelExpense_ImportExpensesToExistingTravel",
+          "consumes": [],
+          "produces": [
+            "application/json",
+            "text/json",
+            "application/xml",
+            "text/xml"
+          ],
+          "parameters": [
+            {
+              "name": "transactionNumber",
+              "in": "path",
+              "description": "The travel to import the expenses to",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            },
+            {
+              "name": "importExpenseIds",
+              "in": "query",
+              "description": "List of ids of the expenses to import, seperated by comma.",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "itemizeExpenses",
+              "in": "query",
+              "description": "Whether itemize expense types that can be itemized or not.",
+              "required": false,
+              "type": "boolean"
+            },
+            {
+              "name": "ignoreLimitWarnings",
+              "in": "query",
+              "description": "Ignore limit warnings and save the dto or give up on saving.",
+              "required": false,
+              "type": "boolean"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Object"
+              }
+            },
+            "400": {
+              "description": "BadRequest",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "404": {
+              "description": "NotFound",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "410": {
+              "description": "Gone",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "422": {
+              "description": "UnprocessableEntity",
+              "schema": {
+                "$ref": "#/definitions/Object"
+              }
+            }
+          },
+          "deprecated": false
+        }
+      },
+      "/v1/me/travel-expenses/{transactionNumber}/expenseLines/{expenseLineId}/receipts": {
+        "post": {
+          "tags": [
+            "Travel expenses"
+          ],
+          "summary": "Uploads a file to the document archive and adds the document to expense line's receipts.",
+          "operationId": "MyTravelExpense_CreateReceipt",
+          "consumes": [
+            "application/json",
+            "text/json",
+            "application/xml",
+            "text/xml",
+            "application/x-www-form-urlencoded",
+            "multipart/form-data"
+          ],
+          "produces": [
+            "application/json",
+            "text/json",
+            "application/xml",
+            "text/xml"
+          ],
+          "parameters": [
+            {
+              "name": "transactionNumber",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            },
+            {
+              "name": "expenseLineId",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int32"
+            },
+            {
+              "name": "dto",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/CreateReceiptDto"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Created",
+              "schema": {
+                "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.ExpenseLineReceipt"
+              }
+            },
+            "400": {
+              "description": "BadRequest",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "404": {
+              "description": "NotFound",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "410": {
+              "description": "Gone",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "422": {
+              "description": "UnprocessableEntity",
+              "schema": {
+                "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.ExpenseLineReceipt"
+              }
+            }
+          },
+          "deprecated": false
+        }
+      },
+      "/v1/me/travel-expenses/{transactionNumber}": {
+        "get": {
+          "tags": [
+            "Travel expenses"
+          ],
+          "summary": "Retrieves travelExpense based on its ID and company ID",
+          "operationId": "MyTravelExpense_Get",
+          "consumes": [],
+          "produces": [
+            "application/json",
+            "text/json",
+            "application/xml",
+            "text/xml"
+          ],
+          "parameters": [
+            {
+              "name": "transactionNumber",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            },
+            {
+              "name": "companyId",
+              "in": "query",
+              "description": "Company id",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense"
+              }
+            },
+            "400": {
+              "description": "BadRequest",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "404": {
+              "description": "NotFound",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "410": {
+              "description": "Gone",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          },
+          "deprecated": false
+        },
+        "delete": {
+          "tags": [
+            "Travel expenses"
+          ],
+          "summary": "Deletes travelExpense based on its ID and company ID",
+          "operationId": "MyTravelExpense_Delete",
+          "consumes": [],
+          "produces": [
+            "application/json",
+            "text/json",
+            "application/xml",
+            "text/xml"
+          ],
+          "parameters": [
+            {
+              "name": "transactionNumber",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            },
+            {
+              "name": "companyId",
+              "in": "query",
+              "description": "Company id",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Object"
+              }
+            },
+            "400": {
+              "description": "BadRequest",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "404": {
+              "description": "NotFound",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "410": {
+              "description": "Gone",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          },
+          "deprecated": false
+        },
+        "patch": {
+          "tags": [
+            "Travel expenses"
+          ],
+          "summary": "Updates travelExpense based on its ID and company ID according to changes specified in patch document",
+          "operationId": "MyTravelExpense_Update",
+          "consumes": [
+            "application/json-patch+json"
+          ],
+          "produces": [
+            "application/json",
+            "text/json",
+            "application/xml",
+            "text/xml"
+          ],
+          "parameters": [
+            {
+              "name": "transactionNumber",
+              "in": "path",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            },
+            {
+              "name": "patch",
+              "in": "body",
+              "required": true,
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Unit4.PublicApi.PatchOperation"
+                }
+              }
+            },
+            {
+              "name": "itemizeExpenses",
+              "in": "query",
+              "required": false,
+              "type": "boolean"
+            },
+            {
+              "name": "ignoreLimitWarnings",
+              "in": "query",
+              "required": false,
+              "type": "boolean"
+            },
+            {
+              "name": "companyId",
+              "in": "query",
+              "description": "Company id",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense"
+              }
+            },
+            "400": {
+              "description": "BadRequest",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "404": {
+              "description": "NotFound",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "410": {
+              "description": "Gone",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "422": {
+              "description": "UnprocessableEntity",
+              "schema": {
+                "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense"
+              }
+            }
+          },
+          "deprecated": false
+        }
+      },
+      "/v1/me/travel-expenses/{transactionNumber}/expenseLines/{expenseLineId}/receipts/{receiptId}": {
+        "delete": {
+          "tags": [
+            "Travel expenses"
+          ],
+          "summary": "Unlinks the receipt from the expense line.",
+          "operationId": "MyTravelExpense_UnlinkReceipt",
+          "consumes": [],
+          "produces": [
+            "application/json",
+            "text/json",
+            "application/xml",
+            "text/xml"
+          ],
+          "parameters": [
+            {
+              "name": "transactionNumber",
+              "in": "path",
+              "description": "Transaction number of the travel expense",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            },
+            {
+              "name": "expenseLineId",
+              "in": "path",
+              "description": "Expense line id (line number)",
+              "required": true,
+              "type": "integer",
+              "format": "int32"
+            },
+            {
+              "name": "receiptId",
+              "in": "path",
+              "description": "The document id of the linked receipt",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "companyId",
+              "in": "query",
+              "description": "Company id",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Object"
+              }
+            },
+            "400": {
+              "description": "BadRequest",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "404": {
+              "description": "NotFound",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            },
+            "410": {
+              "description": "Gone",
+              "schema": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          },
+          "deprecated": false
+        }
+      }
+  },
+  "definitions": {
+    "Unit4.BusinessWorld.PublicApi.Absence": {
+        "title": "Absence information",
+        "required": [
+          "companyId",
+          "absenceCode",
+          "dateFrom",
+          "dateTo",
+          "personId"
+        ],
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "title": "Company",
+            "type": "string",
+            "x-u4-attribute": {
+              "attributeId": "A3",
+              "metadata": "/v2/attributes/A3",
+              "values": "/v2/attribute-values/A3"
+            }
+          },
+          "absenceCode": {
+            "title": "Absence code",
+            "type": "string",
+            "x-u4-attribute": {
+              "attributeId": "CF",
+              "metadata": "/v2/attributes/CF",
+              "values": "/v2/attribute-values/CF"
+            }
+          },
+          "absenceDays": {
+            "format": "int32",
+            "title": "Absence days",
+            "type": "integer",
+            "readOnly": true
+          },
+          "absenceHours": {
+            "format": "double",
+            "title": "Absence hours",
+            "type": "number",
+            "readOnly": true
+          },
+          "absenceReason": {
+            "title": "Absence reason",
+            "type": "string",
+            "x-u4-attribute": {
+              "attributeId": ":reasoncode_id",
+              "metadata": "/v2/attributes/:reasoncode_id",
+              "values": "/v2/attribute-values/:reasoncode_id"
+            }
+          },
+          "absSeq": {
+            "format": "int32",
+            "title": "Sequence number per absence",
+            "type": "integer"
+          },
+          "reasonCodeId": {
+            "title": "Reason code ID",
+            "type": "string",
+            "readOnly": true,
+            "x-u4-attribute": {
+              "attributeId": "AS",
+              "metadata": "/v2/attributes/AS",
+              "values": "/v2/attribute-values/AS"
+            }
+          },
+          "dateFrom": {
+            "format": "date-time",
+            "title": "Date from",
+            "type": "string"
+          },
+          "dateTo": {
+            "format": "date-time",
+            "title": "Date to",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "externalReference": {
+            "title": "External reference",
+            "type": "string"
+          },
+          "openEndedAbsence": {
+            "title": "Open ended absence",
+            "type": "boolean"
+          },
+          "personId": {
+            "title": "Resource",
+            "type": "string",
+            "x-u4-attribute": {
+              "attributeId": "C0",
+              "metadata": "/v2/attributes/C0",
+              "values": "/v2/attribute-values/C0"
+            }
+          },
+          "percent": {
+            "format": "double",
+            "title": "Percent",
+            "type": "number",
+            "readOnly": true
+          },
+          "positionId": {
+            "title": "Position",
+            "type": "string",
+            "x-u4-attribute": {
+              "attributeId": "CG",
+              "metadata": "/v2/attributes/CG",
+              "values": "/v2/attribute-values/CG"
+            }
+          },
+          "postedDate": {
+            "format": "date-time",
+            "title": "Posted date",
+            "type": "string",
+            "readOnly": true
+          },
+          "receivedSickNote": {
+            "title": "Sick note",
+            "type": "boolean"
+          },
+          "reversalDate": {
+            "format": "date-time",
+            "title": "Reversal date",
+            "type": "string",
+            "readOnly": true
+          },
+          "timeFrom": {
+            "format": "int32",
+            "title": "Time from",
+            "type": "integer"
+          },
+          "timeTo": {
+            "format": "int32",
+            "title": "Time to",
+            "type": "integer"
+          },
+          "sequenceNumber": {
+            "format": "int32",
+            "title": "Sequence number",
+            "type": "integer",
+            "x-u4-attribute": {
+              "attributeId": "A23",
+              "metadata": "/v2/attributes/A23",
+              "values": "/v2/attribute-values/A23"
+            }
+          },
+          "status": {
+            "title": "Status",
+            "type": "string",
+            "x-u4-valueList": {
+              "valueList": "ABS_STATUS",
+              "values": "/v1/value-list/ABS_STATUS"
+            }
+          },
+          "workflowState": {
+            "title": "Workflow state",
+            "type": "string",
+            "readOnly": true,
+            "x-u4-attribute": {
+              "attributeId": "?WF_STATE",
+              "metadata": "/v2/attributes/?WF_STATE",
+              "values": "/v2/attribute-values/?WF_STATE"
+            },
+            "x-u4-valueList": {
+              "valueList": "WF_STATE",
+              "values": "/v1/value-list/WF_STATE"
+            }
+          },
+          "lastUpdated": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.LastUpdatedInformation",
+            "readOnly": true
+          },
+          "accountingInformation": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.Absence.AccountingInformation",
+            "title": "Accounting information"
+          },
+          "freeFields": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.Absence.FreeFields",
+            "title": "Free fields"
+          },
+          "customFieldGroups": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/Object"
+            }
+          },
+          "absenceDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.Absence.AbsenceDetail"
+            }
+          },
+          "notificationMessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          }
+        }
+      },
+      "Unit4.PublicApi.NotificationInformation": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "Unit4.BusinessWorld.PublicApi.LastUpdatedInformation": {
+        "description": "Date and user information about the lastest changes.",
+        "type": "object",
+        "properties": {
+          "updatedAt": {
+            "format": "date-time",
+            "title": "Updated",
+            "description": "Date and time for last changes.\r\n                Readonly date\r\n                Entity class: Date for last update\r\n                Title: Updated\r\n                Documentation: Date. The date the information in this window was last updated.",
+            "type": "string"
+          },
+          "updatedBy": {
+            "title": "User ID",
+            "description": "The id or the user who did that last changes.\r\n                Read only string\r\n                Entity class: Operator's signature.DimValue (attribute_id = GN). The code entered in User master file that will\r\n                make a user unique. The user's name as displayed on-screen, on reports and audit trails. Note that you cannot enter\r\n                duplicate user IDs as these are validated\r\n                Title: Updated by\r\n                Documentation: Updated by. The user who last updated the information in this window.",
+            "type": "string"
+          },
+          "notificationMessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          }
+        }
+      },
+      "Unit4.BusinessWorld.PublicApi.Absence.AccountingInformation": {
+        "title": "Accounting information",
+        "type": "object",
+        "properties": {
+          "column1": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.Absence.AccountingInformation.AccountingCategory",
+            "title": "Column 1"
+          },
+          "column2": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.Absence.AccountingInformation.AccountingCategory",
+            "title": "Column 2"
+          },
+          "column3": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.Absence.AccountingInformation.AccountingCategory",
+            "title": "Column 3"
+          },
+          "column4": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.Absence.AccountingInformation.AccountingCategory",
+            "title": "Column 4"
+          },
+          "column5": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.Absence.AccountingInformation.AccountingCategory",
+            "title": "Column 5"
+          },
+          "column6": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.Absence.AccountingInformation.AccountingCategory",
+            "title": "Column 6"
+          },
+          "column7": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.Absence.AccountingInformation.AccountingCategory",
+            "title": "Column 7"
+          }
+        }
+      },
+      "Unit4.BusinessWorld.PublicApi.Absence.FreeFields": {
+        "title": "Free fields",
+        "type": "object",
+        "properties": {
+          "freeField1": {
+            "format": "double",
+            "title": "Free field 1",
+            "type": "number"
+          },
+          "freeField2": {
+            "format": "double",
+            "title": "Free field 2",
+            "type": "number"
+          },
+          "freeField3": {
+            "format": "double",
+            "title": "Free field 3",
+            "type": "number"
+          },
+          "freeField4": {
+            "format": "double",
+            "title": "Free field 4",
+            "type": "number"
+          }
+        }
+      },
+      "Object": {
+        "type": "object",
+        "properties": {}
+      },
+      "Unit4.BusinessWorld.PublicApi.Absence.AbsenceDetail": {
+        "title": "Absence detail information",
+        "required": [
+          "absenceDate"
+        ],
+        "type": "object",
+        "properties": {
+          "absenceDate": {
+            "format": "date-time",
+            "title": "Absence date",
+            "type": "string"
+          },
+          "description": {
+            "title": "Description",
+            "type": "string"
+          },
+          "hours": {
+            "format": "double",
+            "title": "Hours",
+            "type": "number",
+            "readOnly": true
+          },
+          "percent": {
+            "format": "double",
+            "title": "Percent",
+            "type": "number",
+            "readOnly": true
+          },
+          "parttimePercent": {
+            "format": "double",
+            "title": "Part-time%",
+            "type": "number",
+            "readOnly": true
+          },
+          "positionId": {
+            "title": "Position",
+            "type": "string",
+            "x-u4-attribute": {
+              "attributeId": "CG",
+              "metadata": "/v2/attributes/CG",
+              "values": "/v2/attribute-values/CG"
+            }
+          },
+          "reversalDate": {
+            "format": "date-time",
+            "title": "Reversal date",
+            "type": "string",
+            "readOnly": true
+          },
+          "timeFrom": {
+            "format": "int32",
+            "title": "Time from",
+            "type": "integer"
+          },
+          "timeTo": {
+            "format": "int32",
+            "title": "Time to",
+            "type": "integer"
+          },
+          "status": {
+            "title": "Status",
+            "type": "string",
+            "x-u4-valueList": {
+              "valueList": "ABS_STATUS",
+              "values": "/v1/value-list/ABS_STATUS"
+            }
+          },
+          "workSchedule": {
+            "title": "Work schedule",
+            "type": "string",
+            "readOnly": true,
+            "x-u4-attribute": {
+              "attributeId": "CC",
+              "metadata": "/v2/attributes/CC",
+              "values": "/v2/attribute-values/CC"
+            }
+          },
+          "workScheduleTimeFrom": {
+            "format": "int32",
+            "title": "Time from",
+            "type": "integer",
+            "readOnly": true
+          },
+          "workScheduleTimeTo": {
+            "format": "int32",
+            "title": "Time to",
+            "type": "integer",
+            "readOnly": true
+          },
+          "workScheduleHours": {
+            "format": "double",
+            "title": "Planned hours",
+            "type": "number",
+            "readOnly": true
+          },
+          "lastUpdated": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.LastUpdatedInformation",
+            "readOnly": true
+          },
+          "freeFields": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.Absence.FreeFields",
+            "title": "Free fields"
+          },
+          "notificationMessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          }
+        }
+      },
+      "Unit4.BusinessWorld.PublicApi.Absence.AccountingInformation.AccountingCategory": {
+        "type": "object",
+        "properties": {
+          "attributeId": {
+            "title": "Attribute ID",
+            "type": "string",
+            "readOnly": true,
+            "x-u4-attribute": {
+              "attributeId": "AS",
+              "metadata": "/v2/attributes/AS",
+              "values": "/v2/attribute-values/AS"
+            }
+          },
+          "dimValue": {
+            "title": "Dim value",
+            "type": "string"
+          },
+          "notificationMessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          }
+        }
+      },
+      "Unit4.BusinessWorld.PublicApi.TravelExpense": {
+        "title": "Expense information",
+        "description": "Expenses to be claimed. Can be related to travels.",
+        "required": [
+          "purpose",
+          "travelType"
+        ],
+        "type": "object",
+        "properties": {
+          "originalTransactionNumber": {
+            "format": "int64",
+            "title": "Registration number",
+            "description": "OriginalTransactionNumber",
+            "type": "integer",
+            "readOnly": true,
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "companyId": {
+            "title": "Company",
+            "description": "Company.",
+            "type": "string",
+            "x-u4-attribute": {
+              "attributeId": "A3",
+              "metadata": "/v2/attributes/A3",
+              "values": "/v2/attribute-values/A3"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "companyId(description)"
+            }
+          },
+          "isReady": {
+            "format": "int32",
+            "title": "Confirm",
+            "description": "Submitted and ready for workflow",
+            "type": "integer",
+            "x-u4-valueList": {
+              "valueList": "CONFIRM_FLAG",
+              "values": "/v1/value-list/CONFIRM_FLAG"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "dueDate": {
+            "format": "date-time",
+            "title": "Due date",
+            "description": "Due date",
+            "type": "string",
+            "readOnly": true,
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "purpose": {
+            "title": "Purpose of Expenditure",
+            "description": "Purpose",
+            "type": "string",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "updatedAt": {
+            "format": "date-time",
+            "title": "Updated",
+            "description": "Updated",
+            "type": "string",
+            "readOnly": true,
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "period": {
+            "format": "int32",
+            "title": "Period",
+            "description": "Period",
+            "type": "integer",
+            "readOnly": true,
+            "x-u4-attribute": {
+              "attributeId": "AW",
+              "metadata": "/v2/attributes/AW",
+              "values": "/v2/attribute-values/AW"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "period(description)"
+            }
+          },
+          "positionId": {
+            "title": "Position",
+            "description": "Position",
+            "type": "string",
+            "x-u4-attribute": {
+              "attributeId": "CG",
+              "metadata": "/v2/attributes/CG",
+              "values": "/v2/attribute-values/CG"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "positionId(description)"
+            }
+          },
+          "postingError": {
+            "title": "Posting error",
+            "description": "Posting error",
+            "type": "boolean",
+            "readOnly": true,
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "personId": {
+            "title": "Resource ID",
+            "description": "Resource ID",
+            "type": "string",
+            "x-u4-attribute": {
+              "attributeId": "C0",
+              "metadata": "/v2/attributes/C0",
+              "values": "/v2/attribute-values/C0"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "personId(description)"
+            }
+          },
+          "responsible": {
+            "title": "Responsible",
+            "description": "Responsible",
+            "type": "string",
+            "readOnly": true,
+            "x-u4-attribute": {
+              "attributeId": "GN",
+              "metadata": "/v2/attributes/GN",
+              "values": "/v2/attribute-values/GN"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "responsible(description)"
+            }
+          },
+          "taxPercent": {
+            "format": "double",
+            "title": "Tax percent",
+            "description": "Tax percent",
+            "type": "number",
+            "readOnly": true,
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "travelRequestId": {
+            "format": "int64",
+            "title": "Travel request",
+            "description": "Travel request.\r\n            If this field is filled with a valid and approved travel request, data will be copied from the travel request to travel expense, along with its steps. In this case, any steps and expense lines provided in the CREATE dto will be neglected.\r\n            If the travel request is invalid or not approved, CREATE will return 400 bad request.",
+            "type": "integer",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "travelType": {
+            "title": "Claim Type",
+            "description": "Travel type",
+            "type": "string",
+            "x-u4-attribute": {
+              "attributeId": "C04",
+              "metadata": "/v2/attributes/C04",
+              "values": "/v2/attribute-values/C04"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "travelType(description)"
+            }
+          },
+          "updatedBy": {
+            "title": "Updated by",
+            "description": "Updated by",
+            "type": "string",
+            "readOnly": true,
+            "x-u4-attribute": {
+              "attributeId": "GN",
+              "metadata": "/v2/attributes/GN",
+              "values": "/v2/attribute-values/GN"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "updatedBy(description)"
+            }
+          },
+          "transactionDate": {
+            "format": "date-time",
+            "title": "Transaction Date",
+            "description": "Transaction date",
+            "type": "string",
+            "readOnly": true,
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "expenseDate": {
+            "format": "date-time",
+            "description": "The expense date. Can be posted/patched for expense claims of type Expense Only,\r\n                but will not have any effect for other expense types as they are\r\n                governed by travel leg dates. When fetching an existing claim, the\r\n                ExpenseDate will be set to the earliest leg date of the claim.",
+            "type": "string",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "transactionNumber": {
+            "format": "int64",
+            "title": "Transaction number",
+            "description": "Transaction number",
+            "type": "integer",
+            "readOnly": true,
+            "x-u4-attribute": {
+              "attributeId": "A22",
+              "metadata": "/v2/attributes/A22",
+              "values": "/v2/attribute-values/A22"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "transactionNumber(description)"
+            }
+          },
+          "travelLegs": {
+            "description": "Travel information",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.TravelLegs"
+            }
+          },
+          "expenseLines": {
+            "description": "Expense transactions",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.ExpenseLines"
+            }
+          },
+          "mealDeductionsAndLodgingPerDay": {
+            "description": "List of daily allowances. This should be connected to the leg.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.MealDeductionAndLodgingPerDayDto"
+            }
+          },
+          "workflowMessage": {
+            "$ref": "#/definitions/WorkflowMessage",
+            "description": "Rejected message which belongs to every line"
+          },
+          "notificationMessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          }
+        }
+      },
+      "Unit4.BusinessWorld.PublicApi.TravelExpense.TravelLegs": {
+        "title": "Travel information",
+        "description": "Travel information.",
+        "required": [
+          "destinationCountry",
+          "endDate",
+          "endTime",
+          "startDate",
+          "startTime"
+        ],
+        "type": "object",
+        "properties": {
+          "residenceCountry": {
+            "title": "Country of residence",
+            "description": "Country of residence",
+            "type": "string",
+            "readOnly": true,
+            "x-u4-attribute": {
+              "attributeId": "C9",
+              "metadata": "/v2/attributes/C9",
+              "values": "/v2/attribute-values/C9"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "residenceCountry(description)"
+            }
+          },
+          "destinationCountry": {
+            "title": "Destination",
+            "description": "Destination",
+            "type": "string",
+            "x-u4-attribute": {
+              "attributeId": "C9",
+              "metadata": "/v2/attributes/C9",
+              "values": "/v2/attribute-values/C9"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "destinationCountry(description)"
+            }
+          },
+          "legDescription": {
+            "title": "Text",
+            "description": "Leg description",
+            "type": "string",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "dateFrom": {
+            "format": "date-time",
+            "title": "Date from",
+            "description": "Date from",
+            "type": "string",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "dateTo": {
+            "format": "date-time",
+            "title": "Date to",
+            "description": "Date to",
+            "type": "string",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "endDate": {
+            "format": "date-time",
+            "title": "End date",
+            "description": "End date",
+            "type": "string",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "endTime": {
+            "format": "date-time",
+            "title": "End time",
+            "description": "End time",
+            "type": "string",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "customAttributeId": {
+            "title": "Free attribute",
+            "description": "Free attribute",
+            "type": "string",
+            "readOnly": true,
+            "x-u4-attribute": {
+              "attributeId": "AS",
+              "metadata": "/v2/attributes/AS",
+              "values": "/v2/attribute-values/AS"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "customAttributeId(description)"
+            }
+          },
+          "customAttributeValue": {
+            "title": "Free attribute value",
+            "description": "Free attribute value",
+            "type": "string",
+            "x-u4-attribute": {
+              "attributeId": ":free_att_1_id",
+              "metadata": "/v2/attributes/:free_att_1_id",
+              "values": "/v2/attribute-values/:free_att_1_id"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "customAttributeValue(description)"
+            }
+          },
+          "noOfNights": {
+            "format": "int32",
+            "title": "No of nights",
+            "description": "No of nights",
+            "type": "integer",
+            "readOnly": true,
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "startDate": {
+            "format": "date-time",
+            "title": "Start date",
+            "description": "Start date",
+            "type": "string",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "startTime": {
+            "format": "date-time",
+            "title": "Start time",
+            "description": "Start time",
+            "type": "string",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "timeFrom": {
+            "format": "date-time",
+            "title": "Time from",
+            "description": "Time from",
+            "type": "string",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "timeTo": {
+            "format": "date-time",
+            "title": "Time to",
+            "description": "Time to",
+            "type": "string",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "travelLegId": {
+            "format": "int32",
+            "title": "Travel step",
+            "description": "Travel step",
+            "type": "integer",
+            "readOnly": true,
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "accounting": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.TravelLegAccounting",
+            "description": "Accounting information on the leg: Dim 1 - 7"
+          },
+          "allowances": {
+            "description": "Daily allowances. Calculated, readonly.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.ExpenseLines"
+            },
+            "readOnly": true
+          },
+          "notificationMessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          }
+        }
+      },
+      "Unit4.BusinessWorld.PublicApi.TravelExpense.ExpenseLines": {
+        "title": "Expense transactions",
+        "description": "Expense transactions.",
+        "required": [
+          "expenseType"
+        ],
+        "type": "object",
+        "properties": {
+          "accountType": {
+            "title": "Account type",
+            "description": "Account type.",
+            "type": "string",
+            "readOnly": true,
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "alternativePdOrValueReference": {
+            "title": "Alternative PD or value reference",
+            "description": "Alternative PD or value reference.",
+            "type": "string",
+            "readOnly": true,
+            "x-u4-attribute": {
+              "attributeId": "C4",
+              "metadata": "/v2/attributes/C4",
+              "values": "/v2/attribute-values/C4"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "alternativePdOrValueReference(description)"
+            }
+          },
+          "amount": {
+            "format": "double",
+            "title": "Amount",
+            "description": "Amount.",
+            "type": "number",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "currencyAmount": {
+            "format": "double",
+            "title": "Currency amount",
+            "description": "Currency amount.",
+            "type": "number",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "currencyCode": {
+            "title": "Currency",
+            "description": "Currency.",
+            "type": "string",
+            "x-u4-attribute": {
+              "attributeId": "A2",
+              "metadata": "/v2/attributes/A2",
+              "values": "/v2/attribute-values/A2"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "currencyCode(description)"
+            }
+          },
+          "expenseDate": {
+            "format": "date-time",
+            "title": "Transaction date from",
+            "description": "Transaction date from.",
+            "type": "string",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "description": {
+            "title": "Description",
+            "description": "Description.",
+            "type": "string",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "invoiceNumber": {
+            "title": "Invoice number",
+            "description": "Invoice number.",
+            "type": "string",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "factorAttributeValue": {
+            "title": "Factor attribute value",
+            "description": "Factor attribute value.",
+            "type": "string",
+            "x-u4-attribute": {
+              "attributeId": ":factor_att_id",
+              "metadata": "/v2/attributes/:factor_att_id",
+              "values": "/v2/attribute-values/:factor_att_id"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "factorAttributeValue(description)"
+            }
+          },
+          "exchangeRate": {
+            "format": "double",
+            "title": "Exchange rate",
+            "description": "Exchange rate.",
+            "type": "number",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "expenseType": {
+            "title": "Expense type",
+            "description": "Expense type.",
+            "type": "string",
+            "x-u4-attribute": {
+              "attributeId": "BM",
+              "metadata": "/v2/attributes/BM",
+              "values": "/v2/attribute-values/BM"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "expenseType(description)"
+            }
+          },
+          "originalExpenseType": {
+            "title": "Expense type 2",
+            "description": "Original expense type. Used for itemization",
+            "type": "string",
+            "readOnly": true,
+            "x-u4-attribute": {
+              "attributeId": "BM",
+              "metadata": "/v2/attributes/BM",
+              "values": "/v2/attribute-values/BM"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "originalExpenseType(description)"
+            }
+          },
+          "p1Factor": {
+            "format": "double",
+            "title": "P1 Factor",
+            "description": "P1 Factor.",
+            "type": "number",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "p2Constant": {
+            "format": "double",
+            "title": "No of Passengers",
+            "description": "P2 Constant.",
+            "type": "number",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "p3Constant": {
+            "format": "double",
+            "title": "P3 Constant",
+            "description": "P3 Constant.",
+            "type": "number",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "p4Constant": {
+            "format": "double",
+            "title": "P4 Constant",
+            "description": "P4 Constant.",
+            "type": "number",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "p5Constant": {
+            "format": "double",
+            "title": "P5 Constant",
+            "description": "P5 Constant.",
+            "type": "number",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "factorAttributeId": {
+            "title": "Factor attribute",
+            "description": "Factor attribute.",
+            "type": "string",
+            "readOnly": true,
+            "x-u4-attribute": {
+              "attributeId": "AS",
+              "metadata": "/v2/attributes/AS",
+              "values": "/v2/attribute-values/AS"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "factorAttributeId(description)"
+            }
+          },
+          "limitsequence": {
+            "format": "int32",
+            "title": "Limit sequence",
+            "description": "Limit sequence.",
+            "type": "integer",
+            "readOnly": true,
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "pd": {
+            "title": "PD",
+            "description": "PD.",
+            "type": "string",
+            "readOnly": true,
+            "x-u4-attribute": {
+              "attributeId": "CD",
+              "metadata": "/v2/attributes/CD",
+              "values": "/v2/attribute-values/CD"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "pd(description)"
+            }
+          },
+          "percentage": {
+            "title": "Percentage",
+            "description": "Percentage.",
+            "type": "boolean",
+            "readOnly": true,
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "expenseLineId": {
+            "format": "int32",
+            "title": "Sequence number",
+            "description": "Sequence number.",
+            "type": "integer",
+            "readOnly": true,
+            "x-u4-attribute": {
+              "attributeId": "A23",
+              "metadata": "/v2/attributes/A23",
+              "values": "/v2/attribute-values/A23"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "expenseLineId(description)"
+            }
+          },
+          "taxAmount": {
+            "format": "double",
+            "title": "Tax amount",
+            "description": "Tax amount.",
+            "type": "number",
+            "readOnly": true,
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "numberBase": {
+            "format": "double",
+            "title": "Number/Base",
+            "description": "Number/Base.",
+            "type": "number",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "workflowState": {
+            "title": "Workflow state",
+            "description": "Workflow state.",
+            "type": "string",
+            "readOnly": true,
+            "x-u4-attribute": {
+              "attributeId": "?WF_STATE",
+              "metadata": "/v2/attributes/?WF_STATE",
+              "values": "/v2/attribute-values/?WF_STATE"
+            },
+            "x-u4-valueList": {
+              "valueList": "WF_STATE",
+              "values": "/v1/value-list/WF_STATE"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "workflowState(description)"
+            }
+          },
+          "accounting": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.ExpenseLineAccounting",
+            "description": "Accounting fields including account, dim1-7, tax code, and tax system."
+          },
+          "receipts": {
+            "description": "Receipts linked to this expense line.",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.ExpenseLineReceipt"
+            },
+            "readOnly": true
+          },
+          "workflowMessage": {
+            "$ref": "#/definitions/WorkflowMessage",
+            "description": "Rejected message for this expense line.",
+            "readOnly": true
+          },
+          "notificationMessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          }
+        }
+      },
+      "CreateReceiptDto": {
+        "description": "",
+        "type": "object",
+        "properties": {
+          "fileName": {
+            "description": "The file name (without the file extension).",
+            "type": "string"
+          },
+          "mimeType": {
+            "description": "The MIME type. Currently the following MIME types are supported:\r\n            image/gif, image/jpeg, image/png, image/svg+xml, application/pdf",
+            "type": "string"
+          },
+          "fileContent": {
+            "description": "The file content, encoded in Base64.",
+            "type": "string"
+          },
+          "notificationMessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          }
+        }
+      },
+      "Unit4.BusinessWorld.PublicApi.TravelExpense.ExpenseLineReceipt": {
+        "description": "Receipt information.",
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "description": "Document id",
+            "type": "string",
+            "readOnly": true
+          },
+          "documentType": {
+            "description": "Document type",
+            "type": "string",
+            "readOnly": true
+          },
+          "notificationMessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          }
+        }
+      },
+      "Unit4.PublicApi.PatchOperation": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "op": {
+            "enum": [
+              "Add",
+              "Replace",
+              "Remove",
+              "AddOrReplaceById",
+              "ReplaceById",
+              "RemoveById"
+            ],
+            "type": "string"
+          },
+          "value": {
+            "$ref": "#/definitions/Object"
+          }
+        }
+      },
+      "Unit4.BusinessWorld.PublicApi.TravelExpense.MealDeductionAndLodgingPerDayDto": {
+        "title": "Daily allowance",
+        "description": "MealDeduction and lodging information per day.",
+        "type": "object",
+        "properties": {
+          "breakfast": {
+            "title": "Breakfast",
+            "description": "Breakfast.",
+            "type": "boolean",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "lodgingType": {
+            "title": "Free attribute",
+            "description": "Free attribute.",
+            "type": "string",
+            "x-u4-attribute": {
+              "attributeId": "AS",
+              "metadata": "/v2/attributes/AS",
+              "values": "/v2/attribute-values/AS"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "lodgingType(description)"
+            }
+          },
+          "lodgingValue": {
+            "title": "Free attribute value",
+            "description": "Free attribute value.",
+            "type": "string",
+            "x-u4-attribute": {
+              "attributeId": ":free_att_1_id",
+              "metadata": "/v2/attributes/:free_att_1_id",
+              "values": "/v2/attribute-values/:free_att_1_id"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "lodgingValue(description)"
+            }
+          },
+          "dailyAllowanceSequenceNumber": {
+            "format": "int32",
+            "title": "Sequence number",
+            "description": "Sequence number.",
+            "type": "integer",
+            "readOnly": true,
+            "x-u4-attribute": {
+              "attributeId": "A23",
+              "metadata": "/v2/attributes/A23",
+              "values": "/v2/attribute-values/A23"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "dailyAllowanceSequenceNumber(description)"
+            }
+          },
+          "travelLegId": {
+            "format": "int32",
+            "title": "Travel step",
+            "description": "Travel step.",
+            "type": "integer",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "dinner": {
+            "title": "Dinner",
+            "description": "Dinner.",
+            "type": "boolean",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "legalDate": {
+            "format": "date-time",
+            "title": "Date",
+            "description": "Date.",
+            "type": "string",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "lunch": {
+            "title": "Lunch",
+            "description": "Lunch.",
+            "type": "boolean",
+            "x-u4-filterable": {
+              "filterable": true
+            }
+          },
+          "notificationMessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          }
+        }
+      },
+      "WorkflowMessage": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string"
+          },
+          "timeStamp": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/WorkflowMessageReference"
+            }
+          }
+        }
+      },
+      "Unit4.BusinessWorld.PublicApi.TravelExpense.TravelLegAccounting": {
+        "description": "Represents accounting fields.",
+        "type": "object",
+        "properties": {
+          "dim1": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.AccountingField",
+            "description": "Dim 1"
+          },
+          "dim2": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.AccountingField",
+            "description": "Dim 2"
+          },
+          "dim3": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.AccountingField",
+            "description": "Dim 3"
+          },
+          "dim4": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.AccountingField",
+            "description": "Dim 4"
+          },
+          "dim5": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.AccountingField",
+            "description": "Dim 5"
+          },
+          "dim6": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.AccountingField",
+            "description": "Dim 6"
+          },
+          "dim7": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.AccountingField",
+            "description": "Dim 7"
+          },
+          "notificationMessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          }
+        }
+      },
+      "Unit4.BusinessWorld.PublicApi.TravelExpense.ExpenseLineAccounting": {
+        "description": "Represents accounting fields.",
+        "type": "object",
+        "properties": {
+          "account": {
+            "title": "Account",
+            "description": "Account",
+            "type": "string",
+            "x-u4-attribute": {
+              "attributeId": "A0",
+              "metadata": "/v2/attributes/A0",
+              "values": "/v2/attribute-values/A0"
+            },
+            "x-u4-filterable": {
+              "filterable": true
+            },
+            "x-u4-describable": {
+              "propertyName": "account(description)"
+            }
+          },
+          "taxCode": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.AccountingField",
+            "description": "Tax code"
+          },
+          "taxSystem": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.AccountingField",
+            "description": "Tax system"
+          },
+          "dim1": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.AccountingField",
+            "description": "Dim 1"
+          },
+          "dim2": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.AccountingField",
+            "description": "Dim 2"
+          },
+          "dim3": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.AccountingField",
+            "description": "Dim 3"
+          },
+          "dim4": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.AccountingField",
+            "description": "Dim 4"
+          },
+          "dim5": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.AccountingField",
+            "description": "Dim 5"
+          },
+          "dim6": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.AccountingField",
+            "description": "Dim 6"
+          },
+          "dim7": {
+            "$ref": "#/definitions/Unit4.BusinessWorld.PublicApi.TravelExpense.AccountingField",
+            "description": "Dim 7"
+          },
+          "notificationMessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          }
+        }
+      },
+      "WorkflowMessageReference": {
+        "type": "object",
+        "properties": {
+          "keyValues": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "Unit4.BusinessWorld.PublicApi.TravelExpense.AccountingField": {
+        "description": "Accoutning field.",
+        "type": "object",
+        "properties": {
+          "attributeId": {
+            "description": "Attribute id.",
+            "type": "string",
+            "readOnly": true,
+            "x-u4-attribute": {
+              "attributeId": "AS",
+              "metadata": "/v2/attributes/AS",
+              "values": "/v2/attribute-values/AS"
+            }
+          },
+          "dimValue": {
+            "description": "Dim value.",
+            "type": "string"
+          },
+          "dimValueDescription": {
+            "description": "Description for dim value.",
+            "type": "string",
+            "readOnly": true
+          },
+          "attributeIdDescription": {
+            "description": "Attribute id description.",
+            "type": "string",
+            "readOnly": true
+          },
+          "isReadOnly": {
+            "description": "Is dim value read only.",
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isRequired": {
+            "description": "Is dim value required.",
+            "type": "boolean",
+            "readOnly": true
+          },
+          "isActive": {
+            "description": "Is dimension in use.",
+            "type": "boolean",
+            "readOnly": true
+          },
+          "notificationMessages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Unit4.PublicApi.NotificationInformation"
+              }
+            }
+          }
+        }
+      }
+  }
+}
