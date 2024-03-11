@@ -14,5 +14,4 @@ Last one added to APIM:
 /v1/query/fixed-assets - success
 /v1/query/flexi-fields-group-definition-details - failed
 /v1/query/flexi-fields-group-definition - 
-https://raw.githubusercontent.com/Adamski443/jsontest/main/agresso_swagger_onlyflexifieldsgroupdef.json
 
