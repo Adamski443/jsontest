@@ -12,5 +12,6 @@ The raw content for the apim is:
 https://raw.githubusercontent.com/Adamski443/jsontest/main/agresso_swagger_supp_portal.json
 
 Last one added to APIM:
-line 3037 of paths
+line 3037 of paths - failed
+line 2661 of paths - ?
 
