@@ -12,8 +12,5 @@ The raw content for the apim is:
 https://raw.githubusercontent.com/Adamski443/jsontest/main/agresso_swagger_supp_portal.json
 
 Last one added to APIM:
-/v1/query/funder-schemes - failed
-/v1/query/fixed-assets - success
-/v1/query/flexi-fields-group-definition-details - failed
-/v1/query/flexi-fields-group-definition -
+line 3037 of paths
 
