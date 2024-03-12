@@ -13,5 +13,6 @@ https://raw.githubusercontent.com/Adamski443/jsontest/main/agresso_swagger_supp_
 
 Last one added to APIM:
 line 3037 of paths - failed
-line 2661 of paths - ?
+line 2661 of paths - failed
+line 1874 of paths - 
 
