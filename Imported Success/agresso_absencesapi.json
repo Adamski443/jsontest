@@ -5,7 +5,7 @@
     "title": "Unit4 WebAPI documentation",
     "description": "Unit4 WebAPI documentation"
   },
-  "host": "bwuat-web.campus.bath.ac.uk",
+  "host": "bwuat-web.test.co.uk",
   "basePath": "/BusinessWorld-web-api",
   "schemes": [
     "https"
